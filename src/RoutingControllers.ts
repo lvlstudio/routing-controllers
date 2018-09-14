@@ -109,7 +109,9 @@ export class RoutingControllers<T extends BaseDriver> {
      * Executes given controller action.
      */
     protected executeAction(actionMetadata: ActionMetadata, action: Action, interceptorFns: Function[]) {
-
+        if (action.response._headerSent === true) {
+            return undefined;
+        }
         // compute all parameters
         const paramsPromises = actionMetadata.params
             .sort((param1, param2) => param1.index - param2.index)

@@ -385,6 +385,10 @@ export class ExpressDriver extends BaseDriver {
         uses.forEach(use => {
             if (use.middleware.prototype && use.middleware.prototype.use) { // if this is function instance of MiddlewareInterface
                 middlewareFunctions.push((request: any, response: any, next: (err: any) => any) => {
+                    if (response._headerSent) {
+                        return undefined;
+                    }
+
                     try {
                         const useResult = (getFromContainer(use.middleware) as ExpressMiddlewareInterface).use(request, response, next);
                         if (isPromiseLike(useResult)) {
