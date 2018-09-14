@@ -22,7 +22,8 @@
   "bugs": {
     "url": "https://github.com/pleerock/routing-controllers/issues"
   },
-  "main": "index.js",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
   "tags": [
     "express",
     "express.js",
@@ -90,7 +91,7 @@
     "typescript": "~2.7.2"
   },
   "scripts": {
+    "build": "tsc",
     "test": "cross-env NODE_ENV=test gulp tests"
-  },
-  "typings": "index.d.ts"
+  }
 }
