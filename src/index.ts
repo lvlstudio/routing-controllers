@@ -24,7 +24,6 @@ export * from "./decorator/CookieParams";
 export * from "./decorator/Ctx";
 export * from "./decorator/CurrentUser";
 export * from "./decorator/Delete";
-export * from "./decorator/ErrorHandler";
 export * from "./decorator/Get";
 export * from "./decorator/Head";
 export * from "./decorator/Header";
